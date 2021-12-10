@@ -13,8 +13,12 @@ Similar to the authors, we also apply a global pooling operation to convert a mx
 Finally, we used as a baseline the simple L1-norm of the filter as a proxy for the feature importance.
 
 Table 1. # parameters / accuracy before and after using the pruning for 5 iterations
-Approach | Before | After |
-     --- |    --- |   --- | 
-PLS (Avg) | 23,946 / 0.9785 | 5,799 / 0.9835 |
-PLS (Max) | 23,946 / 0.9785 | 8,340 / 0.9826 | 
-L1-Norm | 23,946 / 0.9785 | 9,671 / 0.9646 | 
+
+| Approach   | Before (# parameters/ acc.) | After  (# parameters/ acc.) |
+|------------|-----------------------------|-----------------------------|
+| PLS (Max)  | 23,946 / 0.9785             | 5,799 / 0.9835              |
+| PLS (AvgA) | 23,946 / 0.9785             | 8,340 / 0.9826              |
+| L1-Norm    | 23,946 / 0.9785             | 9,671 / 0.9646              |
+
+
+Based on these results, we can observe that is possible to prune some filters without drastically impacting in the accuracy of the model. In fact, for PLS (Avg) we noticed some marginal improvements even when keeping only approx. 1/4 of the parameters.
